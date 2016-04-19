@@ -1,0 +1,26 @@
+/* gets all user ids for people not the owner of group put in arrary and use next query in a for loop */
+/** pass in who phone it is user id and group you are posting to 
+
+
+SELECT user_id
+	FROM groups AS g
+JOIN user_has_group AS uhg ON uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id = g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+JOIN user u ON u.user_id = uhg.user_user_id
+WHERE (join_group= true or accept_user= true or (join_group= true AND accept_user=true))
+	AND g.title = 'pimpin' AND user_id != 1
+ORDER BY profile_name ASC; 
+
+
+/***** get the count of people that dont own the group ***/
+
+SELECT count(*)
+	FROM groups AS g
+JOIN user_has_group AS uhg ON uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id = g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+JOIN user u ON u.user_id = uhg.user_user_id
+WHERE (join_group= true or accept_user= true or (join_group= true AND accept_user=true))
+	AND g.title = 'pimpin' AND user_id != 1
+ORDER BY profile_name ASC; 

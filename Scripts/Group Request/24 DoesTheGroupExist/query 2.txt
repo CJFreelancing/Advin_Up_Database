@@ -1,0 +1,5 @@
+/* first query user id # */
+/* user_id=2 is the user that is getting accepted into the group */
+
+SELECT title FROM groups 
+WHERE title='pass in value' AND show_group= true

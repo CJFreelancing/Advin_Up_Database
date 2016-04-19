@@ -1,0 +1,13 @@
+/* where u.user_id=1 is who ever phone it is ****/
+
+/*** show all pics in the group that you are in ****/
+/**store value of media_id ***/
+
+
+SELECT gm.media, media_id FROM group_media AS gm JOIN groups as g ON
+	gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+WHERE g.title='turn up' AND show_pic = true
+ORDER BY gm.upload_time;
+			

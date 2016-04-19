@@ -1,0 +1,12 @@
+/*** displays the friend that DMed you and what time they sent it ***/
+/** pass in user_id from whos phone it is ***/
+
+
+SELECT c.friends, upload_time  FROM contacts as c 
+	JOIN user as u 
+	ON 	c.user_user_id 
+	JOIN messaging as m 
+	ON m.contacts_user_user_id = c.user_user_id
+	AND m.contacts_contact_id = c.contact_id
+where u.user_id=1 AND new_message= false
+ORDER BY upload_time;

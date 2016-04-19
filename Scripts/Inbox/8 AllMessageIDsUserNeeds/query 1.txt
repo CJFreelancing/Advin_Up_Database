@@ -1,0 +1,16 @@
+/ *1.)need a function that gives back all the message IDs that the user needs and the upload times. */
+
+/** pass in user_id=1 is who phone it is **/
+
+SELECT upload_time, messeging_id 
+FROM contacts as c    
+JOIN user as u
+    ON    
+c.user_user_id
+    JOIN messaging as m    
+ON m.contacts_user_user_id = c.user_user_id   
+    AND m.contacts_contact_id = c.contact_id
+where u.user_id=1
+    AND (new_message= false or new_message= true)   
+    AND show_message = true
+ORDER BY upload_time DESC;

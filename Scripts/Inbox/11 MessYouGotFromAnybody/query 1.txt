@@ -1,0 +1,15 @@
+/*** Messages you got from anybody***/
+
+/** friends is who sent you the message **/
+
+SELECT text, media upload_time, messeging_id, friends
+
+FROM contacts as c 	
+JOIN user as u 
+	ON 	
+c.user_user_id 
+	JOIN messaging as m 	
+ON m.contacts_user_user_id = c.user_user_id	
+	AND m.contacts_contact_id = c.contact_id
+where friends='bob' 
+ORDER BY upload_time DESC;

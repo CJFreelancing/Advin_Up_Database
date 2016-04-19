@@ -1,0 +1,10 @@
+/*run imediately after query 2 */
+/* pimpin is what they want to name the group user_id is who phone it is */
+
+INSERT INTO groups (title, owner_owner_id, owner_user_user_id, show_group) VALUES
+	('pimpin',(SELECT owner_id FROM owner as o 
+		JOIN user as u on o.user_user_id= u.user_id Where u.user_id=1),
+     (SELECT user_user_id FROM 	owner as o 
+      	JOIN user as u on o.user_user_id = u.user_id WHERE u.user_id=1), true);
+
+

@@ -1,0 +1,4 @@
+/* user_user should be equal to who phone it is
+/* friends is the friend profile name that you are deleting */
+
+DELETE FROM contacts WHERE user_user_id = 1 AND friends = 'maya';

@@ -1,0 +1,27 @@
+/* user_id should be which user phone it is */
+
+/* select user_id query so you know whos profile we are updating */
+
+UPDATE  user
+SET user_img = 'somebullshit'
+WHERE user_id=1;
+
+SELECT user_img FROM user 
+	WHERE user_id=1;
+
+/* user_img is stored as a BLOB */
+
+
+device_token (string)
+device_type (string)
+number_active (True/False)
+
+
+Select device_token FROM user
+	WHERE user_id=? AND device_type =?;
+
+UPDATE device_token,  
+SET user_img = 'somebullshit'
+WHERE user_id=1;
+
+/* returns the User Device ID based on the device type */

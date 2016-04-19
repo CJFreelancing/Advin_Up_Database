@@ -1,0 +1,38 @@
+/**** delete group ****/
+/**** g.title='pass in the title of the group'
+
+
+/**** query 1 ****/
+/**** store in array ***/
+SELECT gm.media_id FROM groups as g 	
+JOIN group_media as gm
+	ON gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+WHERE g.title = 'turn up'
+
+
+
+/*** query 2 ****/
+DELETE FROM comments 
+WHERE group_media_media_id = pass in query 1 array values
+
+
+/*** query 3 ***/
+/*** store value as int ***/
+SELECT group_id FROM groups 
+WHERE title = 'turn up'
+
+/*** query 4 ***/
+DELETE FROM group_media 
+WHERE group_group_id = value from query 3 
+
+
+/***** query 5 ****/
+DELETE FROM groups
+WHERE title = 'turn up'
+
+
+
+
+

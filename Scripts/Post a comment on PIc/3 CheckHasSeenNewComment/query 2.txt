@@ -1,0 +1,29 @@
+/***pass in ID if they click on the check for notifactions ***/
+
+UPDATE user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+JOIN comments as c
+	ON c.group_media_group_group_id = gm.group_group_id 
+	AND c.group_media_group_owner_owner_id = gm.group_owner_owner_id
+	AND c.group_media_group_owner_user_user_id = gm.group_owner_user_user_id
+	AND c.group_media_media_id = gm.media_id
+	AND c.group_media_user_has_group_group_group_id = gm.user_has_group_group_group_id
+	AND c.group_media_user_has_group_group_owner_owner_id = gm.user_has_group_group_owner_owner_id
+	AND c.group_media_user_has_group_group_owner_user_user_id = gm.user_has_group_group_owner_user_user_id
+	AND c.group_media_user_has_group_user_user_id =  gm.user_has_group_user_user_id
+
+
+SET c.comment_seen = true 
+WHERE u.user_id=1 AND gm.media='someshit' AND show_comment=true AND show_pic=true; 

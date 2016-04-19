@@ -1,0 +1,18 @@
+/**Attention after value attention 
+**** attention fag
+*** attention fag
+**** attention fag
+***
+**  look after value below replace attention with the varible you are using
+***for user_id from query 1 **/
+
+/* when you are in group use the group title varible instead of pimpin */
+
+/* user_user_id is who you are adding to the group */
+/* instead of 2 it is user variable who ever you are trying to add to the group */
+
+INSERT INTO user_has_group (user_user_id, group_group_id, group_owner_owner_id, 
+	group_owner_user_user_id,accept_user,date_time_au)
+VALUES ((SELECT user_id FROM user WHERE profile_name='maya'),(SELECT group_id from groups WHERE title='pimpin'),
+		(SELECT owner_owner_id from groups WHERE title = 'pimpin'),
+		(SELECT owner_user_user_id from groups WHERE title='pimpin'),false,now());

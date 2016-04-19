@@ -1,0 +1,6 @@
+/*show friends */
+SELECT friends
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id=1 AND acceptContact = true
+ORDER BY friends ASC;

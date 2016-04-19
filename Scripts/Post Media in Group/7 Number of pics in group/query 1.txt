@@ -1,0 +1,8 @@
+/* Shows the number of pics in a certain group */
+
+
+SELECT count(*) FROM group_media AS gm JOIN groups as g ON
+	gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+WHERE g.title='pimpin' AND show_pic=true;

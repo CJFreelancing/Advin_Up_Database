@@ -1,0 +1,7 @@
+/*user_user_id is who phone it is */
+/* friends is the contact person you are checking */
+
+if value returned they are already friends or request was already sent
+
+SELECT friends FROM contacts 
+WHERE user_user_id=9 AND friends='tyler123';

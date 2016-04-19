@@ -1,0 +1,20 @@
+/*** pass in link to the picture **/
+
+
+UPDATE 
+user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+SET show_pic = false
+WHERE gm.media = 'someshit';

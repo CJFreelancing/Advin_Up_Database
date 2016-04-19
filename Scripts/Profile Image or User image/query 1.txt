@@ -1,0 +1,13 @@
+/* Insert user profile image */
+/* user_id should be which user 
+
+/* select user_id query so you know whos profile we are updating */
+
+UPDATE  user
+SET user_img = 'somebullshit'
+WHERE user_id=1;
+
+SELECT user_img FROM user 
+	WHERE user_id=1;
+
+/* user_img is stored as a BLOB */

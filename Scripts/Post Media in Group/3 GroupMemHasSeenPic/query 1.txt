@@ -1,0 +1,25 @@
+/* where u.user_id=1 is who ever phone it is and instead of media 'someshit' you need to pass the link to the specific photo */
+/** run this after the user hits the check button ***/
+
+/*** use the media link from the previous query in notfications table to pass in gm.media='thelink'**/
+
+
+
+UPDATE 
+user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+SET new_media_seen = true
+			WHERE u.user_id=2 and gm.media = 'someshit';
+			

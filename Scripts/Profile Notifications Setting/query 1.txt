@@ -1,0 +1,52 @@
+/* first query user_id*/
+/* Sets notifcations setting */
+/* user_id is who ever phone it is */
+
+IF (none of the buttons are checked
+UPDATE user 
+SET notifications= 0 WHERE user_id = 1;
+else if(Inbox on)
+UPDATE user 
+SET notifications= 1 WHERE user_id = 1;
+else if (inbox and groups on)
+UPDATE user 
+SET notifications= 2 WHERE user_id = 1;
+else if (inbox groups and invites on)
+UPDATE user 
+SET notifications= 3 WHERE user_id = 1;
+else if (inbox groups invites comments on)
+UPDATE user 
+SET notifications= 4 WHERE user_id = 1;
+else if (groups on)
+UPDATE user 
+SET notifications= 5 WHERE user_id = 1;
+else if (groups and invites on)
+UPDATE user 
+SET notifications= 6 WHERE user_id = 1;
+else if (groups invite comments on)
+UPDATE user 
+SET notifications= 7 WHERE user_id = 1;
+else if (invites and comments on)
+UPDATE user 
+SET notifications= 8 WHERE user_id = 1;
+else if (comments)
+UPDATE user 
+SET notifications= 9 WHERE user_id = 1;
+else if (comments groups)
+UPDATE user 
+SET notifications= 10 WHERE user_id = 1;
+else if (comments and inbox on)
+UPDATE user 
+SET notifications= 11 WHERE user_id = 1;
+else if (invites and inbox)
+UPDATE user 
+SET notifications= 12 WHERE user_id = 1;
+else if (invites on)
+UPDATE user 
+SET notifications= 13 WHERE user_id = 1;
+else if (invites comments inbox on)
+UPDATE user 
+SET notifications= 14 WHERE user_id = 1;
+else if (groups comments inbox on)
+UPDATE user 
+SET notifications= 15 WHERE user_id = 1;

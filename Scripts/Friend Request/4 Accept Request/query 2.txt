@@ -1,0 +1,12 @@
+/* first query user id # */
+/* accept request maya now friends with bob*/
+START TRANSACTION;
+UPDATE contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+SET acceptContact = true, datetime = now()
+WHERE u.user_id =2 AND c.friends= 'bob';
+UPDATE contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+SET acceptContact = true, datetime = now()
+WHERE u.user_id =1 AND c.friends= 'maya';
+COMMIT;

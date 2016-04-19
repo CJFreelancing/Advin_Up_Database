@@ -1,0 +1,9 @@
+/* Shows the number of total people in the group even including the owner of the group
+and people that dont own the group */
+
+SELECT count(*) FROM groups AS g
+	 JOIN user_has_group AS uhg ON uhg.group_group_id = g.group_id
+		AND uhg.group_owner_owner_id = g.owner_owner_id
+		AND uhg.group_owner_user_user_id = g.owner_user_user_id
+ 	 JOIN user as u ON u.user_id= uhg.user_user_id
+WHERE g.title='pimpin'AND uhg.show_user_in_group = true AND show_group = true;

@@ -1,0 +1,6 @@
+/* select owner of group */
+
+SELECT u.profile_name FROM user AS u
+	JOIN owner AS o ON o.user_user_id = u.user_id
+	JOIN groups AS g ON g.owner_owner_id = o.owner_id
+WHERE g.title = 'pimpin' AND u.user_id = g.owner_user_user_id;

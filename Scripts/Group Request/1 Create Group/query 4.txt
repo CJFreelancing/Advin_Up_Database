@@ -1,0 +1,9 @@
+/* run this immediately after query 3 */
+/******* attention fag instead of one it should be who ever phone it is */
+/EX. 1 is bob phone right after values */
+
+INSERT INTO user_has_group (user_user_id, group_group_id, group_owner_owner_id, 
+	group_owner_user_user_id,join_group,date_time_jg, show_user_in_group)
+VALUES (1,(SELECT group_id from groups WHERE title='pimpin'),
+		(SELECT owner_owner_id from groups WHERE title = 'pimpin'),
+		(SELECT owner_user_user_id from groups WHERE title='pimpin'),true,now(), true);

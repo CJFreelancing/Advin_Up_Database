@@ -1,0 +1,48 @@
+/**** you delte owner of group and delte self from group the same way  ****/
+/**** g.title='pass in the title of the group that you are leaving'
+/**** u.user_id = is who phone it is/ whos deleting them selves from a group ***/
+
+
+/**** query 1 ****/
+/**** store in array ***/
+SELECT gm.media_id FROM
+ user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+WHERE g.title = 'delete group title you want to delete your self from' and u.user_id ='pass in who phone it/who want to delte them selves user id';
+
+
+/*** query 2 ****/
+DELETE FROM comments 
+WHERE group_media_media_id = pass in query 1 array values
+
+
+/*** query 3 ***/
+/*** store value as int ***/
+SELECT group_id FROM groups 
+WHERE title = 'pass in group title you want to delte your self from';
+
+/*** query 4 ***/
+DELETE FROM group_media 
+WHERE group_group_id = (value from query 3 AND user_has_group_user_user_id) = (pass in who phone it/who want to delte them selves user id);
+
+/**** query 5****/
+/*** pass in value from query 3 for group_id  ***/
+DELETE FROM user_has_group
+WHERE group_id = (pass in value from query 3) AND user_user_id = (pass in who phone it/who want to delte them selves user id);
+
+
+
+
+

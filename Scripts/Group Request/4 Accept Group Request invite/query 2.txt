@@ -1,0 +1,12 @@
+/* first query user id # */
+
+
+UPDATE  groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	SET uhg.join_group = true, uhg.date_time_jg = now(), uhg.show_user_in_group = true
+	WHERE u.user_id=2 AND g.title='pimpin';

@@ -1,0 +1,36 @@
+/*** user_id=1 is who ever phone it is ***/
+/*** the name of the friend that you are messaging  ****/
+
+/*** you can either insert a picture or a text. You can't do both at the same time ***/
+
+/**** bob sends message to maya ***/
+/*** query 1  inserting a message ***/
+
+
+
+INSERT INTO messaging (contacts_contact_id, contacts_user_user_id, media, new_message, text, upload_time, show_message) VALUES 
+	((SELECT c.contact_id FROM contacts as c JOIN user as u ON
+		c.user_user_id = user_id
+		where u.user_id=1 AND friends='maya'),
+	(SELECT u.user_id FROM contacts as c JOIN user as u ON
+		c.user_user_id = u.user_id 
+		where u.user_id=1 AND friends='maya'),
+	(null),
+	(false),
+	('hey boo'),
+	now(), true);
+
+
+/**** or query 2 ********/
+
+INSERT INTO messaging (contacts_contact_id, contacts_user_user_id, media, new_message, text, upload_time, show_message) VALUES 
+	((SELECT c.contact_id FROM contacts as c JOIN user as u ON
+		c.user_user_id = user_id
+		where u.user_id=1 AND friends='maya'),
+	(SELECT u.user_id FROM contacts as c JOIN user as u ON
+		c.user_user_id = u.user_id 
+		where u.user_id=1 AND friends='maya'),
+	('link to some nudes'),
+	(false),
+	(null),
+	now(),true);

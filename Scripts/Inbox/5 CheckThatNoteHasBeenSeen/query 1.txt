@@ -1,0 +1,20 @@
+/*** when you hit the check on notifcation run this query ***/
+/*** says that you have seen the new message **/
+/*** user_id=1 is who ever phone it is ***/
+/*** pass in the link to media or pass in the text ***/
+
+/** pass in messegin_id value from display message **/
+
+
+
+
+UPDATE contacts as c 	
+JOIN user as u 
+	ON 	
+c.user_user_id 
+	JOIN messaging as m 	
+ON m.contacts_user_user_id = c.user_user_id	
+	AND m.contacts_contact_id = c.contact_id
+SET m.new_message = true 
+WHERE u.user_id=1 AND messeging_id= pass in value; 
+

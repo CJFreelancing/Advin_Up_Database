@@ -1,0 +1,16 @@
+/* first query to get user id */
+/*shows the owner of the group who is trying to join the group in the notifications table*/
+
+SELECT profile_name, date_time_au
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE uhg.accept_user=false AND g.owner_owner_id = 
+		(SELECT owner_id FROM owner as o 
+			JOIN user as u ON u.user_id = o.user_user_id
+				WHERE u.user_id=1)
+ORDER BY date_time_au DESC;

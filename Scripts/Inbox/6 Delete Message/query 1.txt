@@ -1,0 +1,10 @@
+/*** pass in value of messeging_id from clicked message you want to delte could be text or media ***/
+
+
+
+
+
+UPDATE messaging as m 	
+SET m.show_message = false 
+WHERE m.messeging_id = passed in single value
+

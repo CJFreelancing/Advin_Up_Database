@@ -1,0 +1,69 @@
+/*** returns all Picture with user comment of pic **/
+/*** profile pic with that picture **/
+/*** returns the profile name with the picture ***/
+/** hold onto media_id and comments_id but dont display them **/
+
+
+/*** query 1 ****/
+/*** this gets the group_id that we are getting the post from ***/
+
+
+SELECT group_id FROM groups 
+WHERE title = 'free bands'
+
+
+/*** query 2 ***/
+
+/****this query gets the photo link ideas of the specific group **/
+/**** save this info in an array ***/
+
+SELECT media_id from group_media 
+WHERE group_group_id = 19;
+
+
+
+
+
+/**** query 3 ***/
+/*** for loop the data from query 2 pass into this query pass gm.media value ****/
+
+
+SELECT u.profile_name, u.user_img, c.comments, gm.media, gm.upload_time,u.user_id, media_id, comments_id
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+JOIN comments as c
+	ON c.group_media_group_group_id = gm.group_group_id 
+	AND c.group_media_group_owner_owner_id = gm.group_owner_owner_id
+	AND c.group_media_group_owner_user_user_id = gm.group_owner_user_user_id
+	AND c.group_media_media_id = gm.media_id
+	AND c.group_media_user_has_group_group_group_id = gm.user_has_group_group_group_id
+	AND c.group_media_user_has_group_group_owner_owner_id = gm.user_has_group_group_owner_owner_id
+	AND c.group_media_user_has_group_group_owner_user_user_id = gm.user_has_group_group_owner_user_user_id
+	AND c.group_media_user_has_group_user_user_id =  gm.user_has_group_user_user_id
+WHERE c.comments_id = (SELECT MIN(c.comments_id) FROM comments as c
+	JOIN group_media as gm
+	ON c.group_media_group_group_id = gm.group_group_id 
+	AND c.group_media_group_owner_owner_id = gm.group_owner_owner_id
+	AND c.group_media_group_owner_user_user_id = gm.group_owner_user_user_id
+	AND c.group_media_media_id = gm.media_id
+	AND c.group_media_user_has_group_group_group_id = gm.user_has_group_group_group_id
+	AND c.group_media_user_has_group_group_owner_owner_id = gm.user_has_group_group_owner_owner_id
+	AND c.group_media_user_has_group_group_owner_user_user_id = gm.user_has_group_group_owner_user_user_id
+	AND c.group_media_user_has_group_user_user_id =  gm.user_has_group_user_user_id
+WHERE gm.media_id = ?  AND show_comment=true AND show_pic=true)
+	AND g.title ='free bands' AND show_comment=true AND show_pic=true
+ORDER BY gm.upload_time DESC;
+
+

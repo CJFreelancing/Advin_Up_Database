@@ -1,0 +1,74 @@
+/*** user for loop on this query pass the user_ids from pervius query for u.user_id=2 **/
+/** the reseason is we have to populate the table with everyone but the owner **/
+/*** pass in media link *****/
+
+INSERT INTO group_media (group_group_id, group_owner_owner_id, 
+	group_owner_user_user_id, user_has_group_user_user_id, 
+	user_has_group_group_group_id, 
+	user_has_group_group_owner_owner_id,user_has_group_group_owner_user_user_id, media, upload_time, new_media_seen, show_pic)
+VALUES (
+	(
+SELECT g.group_id
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),   
+	(SELECT g.owner_owner_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	(SELECT g.owner_user_user_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	(SELECT uhg.user_user_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	(SELECT uhg.group_group_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	(SELECT uhg.group_owner_owner_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	(SELECT uhg.group_owner_user_user_id 
+
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+		WHERE u.user_id=2 AND g.title='turn up'),
+	'someshit',
+	now(),false, true);

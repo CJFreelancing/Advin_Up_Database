@@ -1,0 +1,55 @@
+
+/*shows maya her denyed request group request ever in notifications screen */
+SELECT title, date_time_jg
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE uhg.user_user_id=2 AND 
+		(uhg.join_group=null)
+ORDER BY date_time_jg DESC;
+
+/*shows all denyed group request sent by specific group */
+SELECT profile_name, date_time_au
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE (uhg.join_group=null) AND g.title='pimpin'
+ORDER BY date_time_au DESC;
+
+
+
+
+/*shows owner who ALL has been denyed trying to join your group ever who is trying to join the group*/
+SELECT profile_name, date_time_au
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE (uhg.accept_user=null) AND g.owner_owner_id = 
+		(SELECT owner_id FROM owner as o 
+			JOIN user as u ON u.user_id = o.user_user_id
+				WHERE u.user_id=1)
+ORDER BY date_time_au DESC;
+
+/*shows group who ALL has been denyed trying to join your group ever who is trying to join the group*/
+SELECT profile_name, date_time_au
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE (uhg.accept_user=null) AND g.title='pimpin'
+ORDER BY date_time_au DESC;

@@ -1,0 +1,6 @@
+/* first query user id # */
+
+
+UPDATE  groups as g
+	SET g.show_group = false
+	WHERE g.title='pimpin';

@@ -1,0 +1,8 @@
+/* first query to get user id */
+/*shows maya her friend request in notifications screen */
+
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id =2 AND acceptContact = false
+ORDER BY datetime DESC;

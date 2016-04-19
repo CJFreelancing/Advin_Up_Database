@@ -1,0 +1,16 @@
+/* first query to get user id */
+/*shows all friend request maya has ever denied  */
+
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id =2 AND (acceptContact =null)
+ORDER BY datetime DESC;
+
+
+/*shows all the friend request that have ever denied maya */
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id !=2 AND (acceptContact =null)
+ORDER BY datetime DESC;

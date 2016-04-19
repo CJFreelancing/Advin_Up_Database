@@ -1,0 +1,16 @@
+/* first query to get user id */
+/*shows maya the people that have ever sent her a friend request in notifications screen */
+
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id =2 AND (acceptContact = false or acceptContact = true or acceptContact =null)
+ORDER BY datetime DESC;
+
+
+/*shows all the people maya has have ever sent a friend request to in notifications screen */
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id !=2 AND (acceptContact = false or acceptContact = true or acceptContact =null)
+ORDER BY datetime DESC;

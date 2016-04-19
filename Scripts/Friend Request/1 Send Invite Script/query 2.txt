@@ -1,0 +1,13 @@
+/* first query user_id*/
+/* Send invite */
+/* Bob sends invite to maya */
+
+
+START TRANSACTION;
+INSERT INTO contacts (friends, datetime, user_user_id) VALUES
+	('maya',now(),(SELECT user_id from user WHERE user_id=1));
+INSERT INTO contacts (friends, datetime, user_user_id, acceptContact) VALUES
+	('bob',now(),(SELECT user_id from user WHERE profile_name='maya'), false);
+COMMIT;
+
+

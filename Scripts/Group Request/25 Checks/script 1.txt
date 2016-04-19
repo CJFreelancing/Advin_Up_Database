@@ -1,0 +1,33 @@
+/*user_user_id is who phone it is */
+/* checks to see if person you already invited person to join your group */
+
+if value returned you already invited person to join your group already sent {
+
+SELECT user_user_id
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+WHERE user_user_id=9 AND (join_group=true or join_group=false) AND g.title='pimpin';
+}
+
+
+if value returned {
+/*Checks to see if this is a group you have already tried to join **/
+
+SELECT user_user_id
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+WHERE user_user_id=9 AND (accept_user=true or accept_user=false) AND g.title='pimpin';
+
+
+
+}

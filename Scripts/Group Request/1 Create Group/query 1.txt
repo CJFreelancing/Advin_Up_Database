@@ -1,0 +1,5 @@
+/* gets the user id based on email and password */
+
+select user_id from avupdb.user WHERE email='blah@gmail.com' and password = 'blah';
+
+/*then use user_id number in next query */

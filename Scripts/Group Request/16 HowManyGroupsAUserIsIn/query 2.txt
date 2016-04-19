@@ -1,0 +1,10 @@
+/* Shows the number of groups that you are in and the # groups that you own*/
+
+
+
+SELECT count(*) FROM groups AS g
+	 JOIN user_has_group AS uhg ON uhg.group_group_id = g.group_id
+		AND uhg.group_owner_owner_id = g.owner_owner_id
+		AND uhg.group_owner_user_user_id = g.owner_user_user_id
+ 	 JOIN user as u ON u.user_id= uhg.user_user_id
+WHERE u.user_id=1 AND uhg.show_user_in_group = true AND show_group = true

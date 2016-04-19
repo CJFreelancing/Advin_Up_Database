@@ -1,0 +1,9 @@
+/* Shows the number of groups that you own */
+/* add the value from this query with the second query */
+
+
+SELECT count(*) FROM groups AS g
+	JOIN owner AS o ON o.owner_id = g.owner_owner_id
+		AND o.user_user_id = g.owner_user_user_id
+	JOIN user AS u ON u.user_id = o.user_user_id
+WHERE u.user_id=1 AND uhg.show_user_in_group = true AND show_group = true

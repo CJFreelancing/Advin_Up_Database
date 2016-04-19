@@ -1,0 +1,7 @@
+/* first query user id # */
+/* deny request*/
+
+UPDATE contacts as c
+	JOIN user a u ON c.user_user_id = u.user_id
+SET acceptContact = null AND datetime = now()
+WHERE u.user_id =2 AND c.friends= 'bob';

@@ -1,0 +1,35 @@
+/* shows who ever phone it is  */
+
+/*** user_id=1 is who ever phone it is ***/
+
+
+/*****  this returns a picture and time stamp if the user has pics they have not seen in any grroup **/
+/*** goes on the notifications table ***/
+/*if (notifications == 2 or 3 or 4 or 5 or 6 or 7 or 10 or 15 ) */
+
+SELECT u.profile_name,g.title, gm.media, upload_time 
+FROM user as u JOIN user_has_group as uhg
+	ON u.user_id = uhg.user_user_id
+JOIN groups as g 
+	ON g.group_id = uhg.group_group_id
+	AND g.owner_owner_id = uhg.group_owner_owner_id
+	AND g.owner_user_user_id =  uhg.group_owner_user_user_id 
+JOIN group_media as gm
+	ON gm.user_has_group_user_user_id = uhg.user_user_id
+	AND gm.user_has_group_group_group_id = uhg.group_group_id
+	AND gm.user_has_group_group_owner_owner_id = uhg.group_owner_owner_id
+	AND gm.user_has_group_group_owner_user_user_id = uhg.group_owner_user_user_id
+	AND gm.group_group_id = g.group_id
+	AND gm.group_owner_owner_id = g.owner_owner_id
+	AND gm.group_owner_user_user_id = g.owner_user_user_id
+
+	
+
+
+
+WHERE (uhg.join_group= true or uhg.accept_user= true or (uhg.join_group= true AND uhg.accept_user=true))
+			AND gm.new_media_seen = false AND u.user_id=2 AND show_pic=true
+		ORDER BY upload_time DESC ;	
+
+			
+

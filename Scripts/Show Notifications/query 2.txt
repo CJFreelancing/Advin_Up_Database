@@ -1,0 +1,49 @@
+if (notifications == 3 or 4 or 6 or 7 or 8 or 11 or 12 or 14 ){
+/* friend invite and group invites notifications on  */
+
+
+
+
+
+
+/*** first query to show friend request ****/
+SELECT friends, datetime
+FROM contacts as c
+	JOIN user as u ON c.user_user_id = u.user_id
+WHERE u.user_id =2 AND acceptContact = false
+ORDER BY datetime DESC;
+
+
+
+/*** second query to show request to join a group/ you were invited to a group ***/
+SELECT title, date_time_jg
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE uhg.user_user_id=2 AND uhg.join_group=false AND show_user_in_group = true
+ORDER BY date_time_jg DESC;
+
+
+
+
+/*** this query shows who is trying to join your groups that you made ***/
+SELECT profile_name, date_time_au
+	FROM groups as g
+	JOIN user_has_group as uhg on 
+	    uhg.group_group_id = g.group_id
+	AND uhg.group_owner_owner_id=g.owner_owner_id
+	AND uhg.group_owner_user_user_id = g.owner_user_user_id
+	JOIN user u ON
+		u.user_id = uhg.user_user_id
+	WHERE uhg.accept_user=false AND g.owner_owner_id = 
+		(SELECT owner_id FROM owner as o 
+			JOIN user as u ON u.user_id = o.user_user_id
+				WHERE u.user_id=1) AND show_user_in_group = true
+ORDER BY date_time_au DESC;
+
+
+}

@@ -1,0 +1,8 @@
+/* shows what groups that you are apart of including the owner and people that dont own the group */
+
+SELECT g.title FROM groups as g
+	JOIN user_has_group as uhg ON uhg.group_group_id = group_id
+		AND uhg.group_owner_owner_id = g.owner_owner_id
+		AND uhg.group_owner_user_user_id = owner_user_user_id
+	JOIN user as u ON u.user_id= uhg.user_user_id
+	WHERE u.user_id=2 AND uhg.show_user_in_group = true AND show_group = true

@@ -1,0 +1,11 @@
+/* use query 1 to get id for user_id */
+/* user_id=? is who creates the group */
+
+if /* returns a result don't do anything */
+(SELECT owner_id from owner WHERE user_id=1)
+else 
+INSERT INTO owner(user_user_id) 
+	SELECT user_id from user WHERE user_id=1;
+
+
+

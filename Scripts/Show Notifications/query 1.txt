@@ -1,0 +1,154 @@
+/*** for user_id =1 pass in who ever phone it is **/
+
+
+
+
+IF NONE CHECKED 
+
+UPDATE user 
+SET notifications = 0
+WHERE user_id=1;
+
+
+-------------------
+IF INBOX ON 
+
+
+UPDATE user 
+SET notifications = 1
+WHERE user_id=1;
+
+-------------------
+
+IF INBOX GROUPS ON
+
+
+UPDATE user 
+SET notifications = 2
+WHERE user_id=1;
+
+-----------------------------
+
+IF INBOX GROUPS INVITES ON
+
+
+UPDATE user 
+SET notifications = 3
+WHERE user_id=1;
+
+-------------------------
+
+IF INBOX GROUPS INVTIES COMMENTS ON
+
+UPDATE user
+SET notifications =4
+WHERE user_id=1;
+
+---------------------------
+
+IF GROUPS 5 ON
+
+UPDATE user
+SET notifications =5
+WHERE user_id=1;
+
+
+-------------------------
+
+
+IF GROUPS INVITES 6 ON 
+
+UPDATE user
+SET notifications =6
+WHERE user_id=1;
+
+----------------
+
+IF GROUPS INVITES COMMENTS 7 ON 
+
+UPDATE user
+SET notifications =7
+WHERE user_id=1;
+
+-----------------------
+
+IF INVITES COMMENTS 8 ON 
+
+UPDATE user
+SET notifications =8
+WHERE user_id=1;
+
+
+-----------------------
+
+IF COMMENTS 9 ON 
+
+UPDATE user
+SET notifications =9
+WHERE user_id=1;
+
+
+---------------------
+
+IF COMMENTS GROUPS ON 
+
+UPDATE user
+SET notifications =10
+WHERE user_id=1;
+
+---------------------
+
+IF COMMENTS INBOX ON 
+
+UPDATE user
+SET notifications =11
+WHERE user_id=1;
+
+
+---------------------
+
+IF INVITES INBOX ON 
+
+UPDATE user
+SET notifications =12
+WHERE user_id=1;
+
+---------------------
+
+IF INVITES ON 
+
+UPDATE user
+SET notifications =13
+WHERE user_id=1;
+
+---------------------
+
+IF INVITES COMMENTS INBOX 
+
+UPDATE user
+SET notifications =14
+WHERE user_id=1;
+
+---------------------
+
+IF GROUPS COMMENTS INBOX 
+
+UPDATE user
+SET notifications =15
+WHERE user_id=1;
+
+
+----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

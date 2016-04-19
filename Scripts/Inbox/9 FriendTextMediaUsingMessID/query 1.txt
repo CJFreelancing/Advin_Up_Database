@@ -1,0 +1,13 @@
+/* 2.)need a function that gives back the the friend, text or media (by me only giving the message ID). */
+
+
+SELECT text, media,friends, upload_time, messeging_id  
+FROM contacts as c 	
+JOIN user as u 
+	ON 	
+c.user_user_id 
+	JOIN messaging as m 	
+ON m.contacts_user_user_id = c.user_user_id	
+	AND m.contacts_contact_id = c.contact_id
+where messeging_id=? 	
+ORDER BY upload_time DESC;

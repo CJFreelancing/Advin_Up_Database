@@ -1,0 +1,23 @@
+/*** if it is your phone your messages go on the right and grey ***/
+/*** if it is the friend message your messages go on the left ***/
+/*** 1. if you are using the phone your user_id is 1 and your profile name is bob ***/
+/**** if your profile name matches up with friends variable in the select your messages goes on the right and blue **/
+/*** 2. if the friend that you messeging matches the returned friend variable put it on the left and make it grey */
+/*** text and media is either going to be null or reutrn a value handle that how you wish ***/
+
+/*Don't display messeging_id but hold onto value you need it to delete **/
+
+
+SELECT text, media,friends, upload_time, messeging_id  
+FROM contacts as c 	
+JOIN user as u 
+	ON 	
+c.user_user_id 
+	JOIN messaging as m 	
+ON m.contacts_user_user_id = c.user_user_id	
+	AND m.contacts_contact_id = c.contact_id
+where u.user_id=1 
+	AND (new_message= false or new_message= true)
+	AND (c.friends = 'maya' or c.friends = 'bob')
+	AND show_message = true 
+ORDER BY upload_time DESC;
